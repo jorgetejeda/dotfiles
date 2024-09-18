@@ -1,0 +1,70 @@
+# Creating a New SSH Key
+# Follow these steps to generate a new SSH key and add it to your SSH agent 
+# for secure authentication with services like GitHub or GitLab.
+
+# Step 1: Navigate to the SSH Directory
+# --------------------------------
+# Open your terminal and change to the SSH directory:
+# cd ~/.ssh
+
+# Step 2: Create an SSH Config File (Optional)
+# --------------------------------
+# If you want to manage multiple SSH keys or customize your SSH settings, 
+# create a configuration file:
+# touch ~/.ssh/config
+# 
+# Open the config file in your preferred text editor:
+# nano ~/.ssh/config
+#
+# You can add entries for different hosts. For example:
+# Host github.com
+#   IdentityFile ~/.ssh/github
+#   AddKeysToAgent yes
+# 
+# This will help streamline your SSH usage.
+
+# Step 3: Generate a New SSH Key
+# --------------------------------
+# Execute the following command to create a new SSH key. Replace LOGIN_EMAIL 
+# with your email address, which will help identify the key:
+# ssh-keygen -t rsa -b 4096 -C "LOGIN_EMAIL"
+
+# Example:
+# ssh-keygen -t rsa -b 4096 -C "test@gmail.com"
+
+# During this process, you'll be prompted to specify a file to save the key. 
+# You can press Enter to accept the default location or specify a different file name.
+ 
+# Step 4: Copy the Public Key to Clipboard
+# --------------------------------
+# Once you've generated the SSH key, you need to copy the public key to your clipboard. 
+# Use the following command, replacing <filename> with the actual name of your public key 
+# file (usually ends in .pub):
+# cat ~/.ssh/<filename>.pub | pbcopy
+
+# Step 5: Add the SSH Key to the SSH Agent
+# --------------------------------
+# To ensure your SSH key is loaded into the SSH agent, use the following command (update the path as necessary):
+# ssh-add ~/.ssh/github
+
+# Step 6: Add Your SSH Key to Your Git Service
+# --------------------------------
+# Log in to your Git service (e.g., GitHub, GitLab) and navigate to the SSH keys section in your 
+# account settings. Paste your public key from the clipboard into the appropriate field.
+
+# Step 7: Managing Multiple SSH Keys
+# --------------------------------
+# If you need to manage multiple SSH keys for different services or repositories, 
+# refer to the following tutorial for guidance:
+
+# - How to Use Different SSH Keys for Different Bitbucket/Git Repositories 
+# (https://dev.to/shane/how-to-use-different-ssh-keys-for-different-bitbucket-git-repositories-4of0)
+ 
+# Step 8: Validate Your SSH Setup
+# --------------------------------
+# To ensure everything is configured correctly, run the following command to test your SSH connection with the service:
+# ssh -T <domain>
+
+# Example for GitLab:
+# ssh -T git@gitlab.com
+# If successful, you should see a message confirming your authentication.
