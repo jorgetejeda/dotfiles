@@ -1,0 +1,22 @@
+# Normal applications (Install via Homebrew)
+rectangle
+alfred
+mysql
+visual-studio-code
+keka
+git
+node
+nvm
+yarn
+yabai
+skhd
+starship
+openssh
+
+# Installation using Homebrew Cask (Install via Cask)
+wezterm
+postman
+warp
+cleanmymac
+tableplus
+microsoft-teams

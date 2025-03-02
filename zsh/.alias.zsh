@@ -4,7 +4,7 @@
 # ----- ZSH ----- 
 alias zshConfig='nvim ~/.zshrc' 
 alias execZsh='source ~/.zshrc'
-alias execZshAlias='source ~/dotfiles/zsh/alias.zsh'
+alias execZshAlias='source ~/dotfiles/zsh/.alias.zsh'
 alias themes='cd ~/.oh-my-zsh/themes'
 
 # ----- GIT -----
