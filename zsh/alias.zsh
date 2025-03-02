@@ -62,7 +62,7 @@ alias configHost='code /etc/hosts'
 
 # ----- SSH -----
 
-alias ssh='cd ~/.ssh/'
+alias configSsh='cd ~/.ssh/'
 
 # ----- OPEN JAVA VERSION FILES -----
 alias javaVersions='cd /Library/Java/JavaVirtualMachines'
@@ -74,3 +74,4 @@ alias showAliases='cat ~/.zshrc | grep alias'
 
 # ---- Eza (better ls) -----
 alias ls="eza --color=always --long --icons=always --no-time --no-user --no-permissions"
+alias pnpm='npx pnpm'
