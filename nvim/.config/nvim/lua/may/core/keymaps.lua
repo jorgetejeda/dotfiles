@@ -40,3 +40,22 @@ keymap.set("n", "za", "za", { desc = "Toggle between closing and opening the fol
 keymap.set("", "<leader>f", function()
   require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Formata selected code" })
+
+-- Acentos en español (Alt/Option + vocal-- Acentos en español (Alt/Option + vocal en Warp = <Esc> + letra)
+keymap.set("i", "<Esc>a", "á", { desc = "Insert á" })
+keymap.set("i", "<Esc>e", "é", { desc = "Insert é" })
+keymap.set("i", "<Esc>i", "í", { desc = "Insert í" })
+keymap.set("i", "<Esc>o", "ó", { desc = "Insert ó" })
+keymap.set("i", "<Esc>u", "ú", { desc = "Insert ú" })
+keymap.set("i", "<Esc>n", "ñ", { desc = "Insert ñ" })
+
+-- Mayúsculas
+keymap.set("i", "<Esc>A", "Á", { desc = "Insert Á" })
+keymap.set("i", "<Esc>E", "É", { desc = "Insert É" })
+keymap.set("i", "<Esc>I", "Í", { desc = "Insert Í" })
+keymap.set("i", "<Esc>O", "Ó", { desc = "Insert Ó" })
+keymap.set("i", "<Esc>U", "Ú", { desc = "Insert Ú" })
+keymap.set("i", "<Esc>N", "Ñ", { desc = "Insert Ñ" })
+-- Signos de interrogación y exclamación
+keymap.set("i", "<M-?>", "¿", { desc = "Insert ¿" })
+keymap.set("i", "<M-!>", "¡", { desc = "Insert ¡" })
