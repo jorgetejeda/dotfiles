@@ -15,7 +15,7 @@ openssh
 
 # Installation using Homebrew Cask (Install via Cask)
 wezterm
-postman
+bruno
 warp
 cleanmymac
 tableplus
