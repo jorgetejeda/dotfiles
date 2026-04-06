@@ -1,59 +1,22 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate",
-  dependencies = {
-    "windwp/nvim-ts-autotag",
-  },
+  build = function()
+    require("nvim-treesitter.install").install({
+      "json", "javascript", "typescript", "tsx", "yaml", "html", "css",
+      "prisma", "markdown", "markdown_inline", "svelte", "graphql",
+      "bash", "lua", "vim", "dockerfile", "gitignore", "query", "vimdoc", "c",
+    }, { summary = true })
+  end,
   config = function()
-    -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
+    require("nvim-treesitter").setup()
 
-    -- configure treesitter
-    -- FIXME: this is a workaround for a bug in treesitter, missing required
-    treesitter.setup({ -- enable syntax highlighting
-      highlight = {
-        enable = true,
-      },
-      -- enable indentation
-      indent = { enable = true },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
-      autotag = {
-        enable = true,
-      },
-      -- ensure these language parsers are installed
-      ensure_installed = {
-        "json",
-        "javascript",
-        "typescript",
-        "tsx",
-        "yaml",
-        "html",
-        "css",
-        "prisma",
-        "markdown",
-        "markdown_inline",
-        "svelte",
-        "graphql",
-        "bash",
-        "lua",
-        "vim",
-        "dockerfile",
-        "gitignore",
-        "query",
-        "vimdoc",
-        "c",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(ev)
+        if pcall(vim.treesitter.get_parser, ev.buf) then
+          vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
     })
   end,
 }
-

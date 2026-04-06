@@ -24,8 +24,15 @@ keymap.set("n", "<S-CR>", "O<Esc>j", { desc = "Insert a newline pressing <SHIFT+
 -- terminal management
 keymap.set("t", "<leader><ESC>", "<C-\\><C-n>", { desc = "Close terminal mode" })
 
--- jump into previous file :e#
-keymap.set("n", "<leader>`", "<leader><CR>`", { desc = "Toggle between current file and previous file" })
+-- jump into previous file (alternate buffer)
+keymap.set("n", "<leader>`", "<C-^>", { desc = "Toggle between current file and previous file" })
+
+-- copy relative path of current file to clipboard
+keymap.set("n", "<leader>cp", function()
+  local path = vim.fn.expand("%:.")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied: " .. path)
+end, { desc = "Copy relative path to clipboard" })
 
 -- Fold code
 -- set command

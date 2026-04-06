@@ -1,20 +1,14 @@
 #!/bin/bash
 
-# Asegurar que Homebrew está instalado
-source ./utilities/check_homebrew.sh
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-# Verificar si Starship está instalado
-if ! command -v starship &>/dev/null; then
-    echo "Starship no está instalado. Instalándolo con Homebrew..."
-    brew install starship
-    echo "Starship instalado correctamente."
-else
-    echo "Starship ya está instalado."
-fi
+source "$DOTFILES_DIR/utilities/check_homebrew.sh"
 
-# Ejecutar Stow para Starship
-echo "Ejecutando Stow para Starship..."
-stow starship
+echo ""
+echo "  [Starship]"
 
-# Confirmación final
-echo "Instalación de Starship y configuración con Stow completada."
+instalar_brew "starship" "Starship"
+
+aplicar_stow "starship"
+
+echo "  Listo."

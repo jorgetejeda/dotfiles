@@ -34,3 +34,9 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- ignore directoies
 opt.wildignore:append({ "*/node_modules/*" })
+
+-- folds (treesitter)
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldenable = false  -- archivos abren sin folds cerrados
+opt.foldlevel = 99

@@ -25,6 +25,11 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(starship init zsh)"
 
+# ----- SERVERLESS -----
+
+export SLS_DEBUG=*
+export DEBUG_MODE=True
+
 # ----- ANDROID --------
 
 # Intentar configurar JAVA_HOME
