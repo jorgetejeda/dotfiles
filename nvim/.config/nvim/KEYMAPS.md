@@ -12,7 +12,7 @@ Leader key: `Space`
 | `<leader>nh` | Normal | Limpiar highlights de búsqueda |
 | `<Enter>` | Normal | Insertar línea abajo sin entrar en insert |
 | `<Shift+Enter>` | Normal | Insertar línea arriba sin entrar en insert |
-| `<leader>\`` | Normal | Alternar entre archivo actual y anterior |
+| `<leader>` | Normal | Alternar entre archivo actual y anterior |
 | `<leader>cp` | Normal | Copiar ruta relativa del archivo actual al clipboard |
 
 ---

@@ -5,7 +5,7 @@ return {
     -- Deshabilitar Tab de copilot para no conflictuar con nvim-cmp
     vim.g.copilot_no_tab_map = true
 
-    vim.keymap.set("i", "<C-l>", 'copilot#Accept("")', {
+    vim.keymap.set("i", "<Tab>", 'copilot#Accept("")', {
       expr = true,
       replace_keycodes = false,
       desc = "Accept Copilot suggestion",
