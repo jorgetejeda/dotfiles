@@ -7,6 +7,14 @@ export PATH="/usr/local/Cellar/openvpn/2.5.3/sbin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
+# ------ COLIMA + DOCKER --------- 
+
+export COLIMA_HOME=/Volumes/DevDrive/Proyects/production/dominique-pos-data/
+
+# Define la ruta del socket de Colima para que herramientas externas (como ctop o lazydocker) 
+# puedan comunicarse con el demonio de Docker y mostrar estadísticas de los contenedores.
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
 # ----- ZSH PLUGINS AND THEMES -----
 
 # ZSH_THEME="jtejeda"
@@ -77,3 +85,4 @@ kill_pid(){
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # export SDKMAN_DIR="$HOME/.sdkman"
 #[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh#"
+export DOCKER_HOST="unix:///Volumes/DevDrive/Proyects/production/dominique-pos-data/default/docker.sock"

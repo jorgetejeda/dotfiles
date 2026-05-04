@@ -44,7 +44,7 @@ keymap.set("n", "za", "za", { desc = "Toggle between closing and opening the fol
 -- zR - Open all folds in the current buffer.
 -- zM - Close all folds in the current buffer.
 
-keymap.set("", "<leader>f", function()
+keymap.set({ "n", "v" }, "<Esc>f", function()
   require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Formata selected code" })
 
