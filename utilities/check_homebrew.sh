@@ -9,7 +9,7 @@ check_homebrew() {
       echo "  Homebrew instalado correctamente."
     else
       echo "  Homebrew es obligatorio. Abortando."
-      exit 1
+      return 1
     fi
   else
     echo "  [OK] Homebrew ya está instalado."
