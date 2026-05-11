@@ -16,10 +16,12 @@ local config = {
         bottom = 28,
     },
 
-    -- font config
+    -- font config — switch between FiraCode and JetBrains by toggling the active line
     font = wezterm.font("FiraCode Nerd Font Mono"),
+    -- font = wezterm.font("JetBrainsMono Nerd Font Mono"),
     font_size = 16,
     line_height = 1.1,
+    harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
     adjust_window_size_when_changing_font_size = false,
 
     -- keys config

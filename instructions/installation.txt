@@ -17,6 +17,7 @@ eza
 # Installation using Homebrew Cask (Install via Cask)
 wezterm
 font-fira-code-nerd-font
+font-jetbrains-mono-nerd-font
 bruno
 warp
 tableplus 
