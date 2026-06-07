@@ -65,6 +65,16 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- NUEVO: Configuración de Diagnósticos Globales (Inline)
+    vim.diagnostic.config({
+      virtual_text = {
+        spacing = 4,         -- Distancia entre tu código y el texto del error
+        prefix = "●",        -- El ícono que saldrá al inicio del error
+      },
+      underline = true,      -- Mantiene la línea ondulada debajo del error
+      severity_sort = true,  -- Prioriza mostrar errores antes que advertencias
+    })
+
     -- Aplicar capabilities a todos los servidores (nvim-lspconfig v3 API)
     vim.lsp.config("*", { capabilities = capabilities })
 
