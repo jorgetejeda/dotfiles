@@ -102,6 +102,8 @@ return {
         function(server_name)
           vim.lsp.enable(server_name)
         end,
+        -- stylua is a formatter (conform.nvim), not an LSP server
+        stylua = function() end,
       },
     })
   end,

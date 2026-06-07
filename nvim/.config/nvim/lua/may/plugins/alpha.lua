@@ -5,19 +5,28 @@ return {
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
 
-    -- Set header
+    -- Creamos el color morado de DMQ Tech Labs para NeoVim
+    vim.api.nvim_set_hl(0, "DMQPurple", { fg = "#8E5BE1", bold = true })
+
+    -- Set header (El logo masivo y tupido de DMQ TECH LABS)
     dashboard.section.header.val = {
-      "                                                     ",
-      "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-      "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-      "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-      "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-      "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-      "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-      "                                                     ",
+      "                                                  ",
+      "  ████████▄    ███▄           ▄███      █████████▄   ",
+      "  ███    ▀██▄  █████▄       ▄█████    ███▀      ▀██▄ ",
+      "  ███     ███  ███ ▀██▄   ▄██▀ ███   ███          ███",
+      "  ███     ███  ███   ▀██▄██▀   ███   ███          ███",
+      "  ███     ███  ███     ██▀     ███   ███          ███",
+      "  ███    ▄██▀  ███             ███    ███▄      ▄██▀ ",
+      "  ████████▀    ███             ███      █████████▀   ",
+      "                                                ▀██▄ ",
+      "               T E C H   L A B S                  ▀▀ ",
+      "                                                  ",
     }
 
-    -- Set menu
+    -- Aplicamos el color morado DMQ al header
+    dashboard.section.header.opts.hl = "DMQPurple"
+
+    -- Set menu (Mantenemos tus mismos keymaps de Telescope, NvimTree y Autocomandos)
     dashboard.section.buttons.val = {
       dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
       dashboard.button("SPC ee", "  > Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),

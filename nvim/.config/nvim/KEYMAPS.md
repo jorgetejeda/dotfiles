@@ -256,3 +256,19 @@ Las sugerencias aparecen como ghost text mientras escribes.
 | `Opt + N` | Ñ |
 | `Opt + ?` | ¿ |
 | `Opt + !` | ¡ |
+
+---
+
+## Multi-cursor (vim-multiple-cursors)
+
+| Atajo | Modo | Acción |
+|-------|------|--------|
+| `Ctrl+n` | Normal / Visual | Iniciar multicursor en la palabra bajo el cursor / agregar siguiente coincidencia |
+| `Ctrl+p` | Multicursor | Quitar última selección y volver a la coincidencia anterior |
+| `Ctrl+x` | Multicursor | Saltar coincidencia actual y pasar a la siguiente |
+| `g + Ctrl+n` | Normal | Iniciar multicursor en posición exacta (sin word boundary) |
+| `Alt+n` | Normal | Seleccionar **todas** las coincidencias de la palabra de una vez |
+| `g + Alt+n` | Normal | Seleccionar todas las coincidencias (posición exacta) |
+| `Esc` | Multicursor | Salir del modo multicursor |
+
+**Flujo típico:** posiciona el cursor sobre una palabra → `Ctrl+n` para seleccionarla → sigue presionando `Ctrl+n` para agregar más coincidencias → edita todas a la vez.

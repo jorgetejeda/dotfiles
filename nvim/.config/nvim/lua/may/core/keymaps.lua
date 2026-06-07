@@ -1,6 +1,16 @@
+-- Key notation guide:
+--   <leader>  →  Space
+--   <C-x>     →  Ctrl + x
+--   <S-x>     →  Shift + x
+--   <A-x>     →  Alt / Option + x
+--   <M-x>     →  Meta / Option + x  (igual que <A-x> en macOS)
+--   <Esc>     →  Escape
+--   <CR>      →  Enter
+--   <BS>      →  Backspace
+
 vim.g.mapleader = " "
 
-local keymap = vim.keymap -- for concisenses
+local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
@@ -66,3 +76,14 @@ keymap.set("i", "<Esc>N", "Ñ", { desc = "Insert Ñ" })
 -- Signos de interrogación y exclamación
 keymap.set("i", "<M-?>", "¿", { desc = "Insert ¿" })
 keymap.set("i", "<M-!>", "¡", { desc = "Insert ¡" })
+
+-- vim-multiple-cursors
+vim.g.multi_cursor_use_default_mapping = 0
+vim.g.multi_cursor_start_word_key = "<C-n>"      -- Ctrl+n      → iniciar multicursor en la palabra bajo el cursor
+vim.g.multi_cursor_select_all_word_key = "<A-n>" -- Alt+n       → seleccionar todas las coincidencias de la palabra
+vim.g.multi_cursor_start_key = "g<C-n>"          -- g + Ctrl+n  → iniciar multicursor en posición exacta
+vim.g.multi_cursor_select_all_key = "g<A-n>"     -- g + Alt+n   → seleccionar todas (posición exacta)
+vim.g.multi_cursor_next_key = "<C-n>"            -- Ctrl+n      → agregar siguiente coincidencia
+vim.g.multi_cursor_prev_key = "<C-p>"            -- Ctrl+p      → quitar última selección y volver atrás
+vim.g.multi_cursor_skip_key = "<C-x>"            -- Ctrl+x      → saltar coincidencia actual
+vim.g.multi_cursor_quit_key = "<Esc>"            -- Escape      → salir del modo multicursor
