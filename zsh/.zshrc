@@ -7,13 +7,9 @@ export PATH="/usr/local/Cellar/openvpn/2.5.3/sbin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
-# ------ COLIMA + DOCKER --------- 
+# ------ YARN --------- 
 
-export COLIMA_HOME=/Volumes/DevDrive/Proyects/production/dominique-pos-data/
-
-# Define la ruta del socket de Colima para que herramientas externas (como ctop o lazydocker) 
-# puedan comunicarse con el demonio de Docker y mostrar estadísticas de los contenedores.
-export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+export PATH="$PATH:$HOME/.yarn/bin"
 
 # ----- ZSH PLUGINS AND THEMES -----
 
@@ -21,9 +17,11 @@ export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 ZSH_DISABLE_COMPFIX="true"
 
 plugins=(
-  git zsh-autosuggestions
-  git zsh-syntax-highlighting
-  web-search  
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zsh-autocomplete
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -84,5 +82,4 @@ kill_pid(){
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # export SDKMAN_DIR="$HOME/.sdkman"
-#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh#"
-export DOCKER_HOST="unix:///Volumes/DevDrive/Proyects/production/dominique-pos-data/default/docker.sock"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh#"export PATH="$PATH:$(yarn global bin)"

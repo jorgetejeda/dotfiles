@@ -1,7 +1,7 @@
 # Neovim Keymaps — Perfil `may`
 
 Leader key: `Space`
-
+Para ver todos los mappings de las keys :Telescope maps
 ---
 
 ## General
