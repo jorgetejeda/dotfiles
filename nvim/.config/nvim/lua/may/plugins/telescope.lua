@@ -17,6 +17,13 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "smart" },
+        get_selection_window = function()
+          local zen = package.loaded["zen-mode.view"]
+          if zen and zen.is_open() then
+            return zen.win
+          end
+          return 0
+        end,
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous,

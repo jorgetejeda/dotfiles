@@ -4,7 +4,6 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local nvimtree = require("nvim-tree")
-
     -- recommended settings from nvim-tree documentation
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
@@ -47,7 +46,6 @@ return {
         ignore = false,
       },
     })
-
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
 
