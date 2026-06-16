@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local config = {}
+local config = {} 
 
 -- UI & Window Config
 config.macos_window_background_blur = 30
@@ -50,7 +50,7 @@ config.background = {
         vertical_align = "Middle",
         horizontal_align = "Center",
         width = "100%",
-        height = "Cover",
+        height = "Cover", --Cover, Contain, 123 specific pixels, 20% percentage, 
         opacity = 1.00,
         hsb = {
             hue = 0.9,
