@@ -28,9 +28,9 @@ keymap.set("n", "<leader>`", "<C-^>", { desc = "Toggle between current file and 
 
 -- copy relative path of current file to clipboard
 keymap.set("n", "<leader>cp", function()
-  local path = vim.fn.expand("%:.")
-  vim.fn.setreg("+", path)
-  vim.notify("Copied: " .. path)
+	local path = vim.fn.expand("%:.")
+	vim.fn.setreg("+", path)
+	vim.notify("Copied: " .. path)
 end, { desc = "Copy relative path to clipboard" })
 
 -- Fold code
@@ -44,7 +44,7 @@ keymap.set("n", "za", "za", { desc = "Toggle between closing and opening the fol
 -- zM - Close all folds in the current buffer.
 
 keymap.set({ "n", "v" }, "<Esc>f", function()
-  require("conform").format({ async = true, lsp_fallback = true })
+	require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Formata selected code" })
 
 -- Acentos en español (Alt/Option + vocal-- Acentos en español (Alt/Option + vocal en Warp = <Esc> + letra)

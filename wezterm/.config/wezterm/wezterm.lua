@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local config = {} 
+local config = {}
 
 -- UI & Window Config
 config.macos_window_background_blur = 30
@@ -38,27 +38,28 @@ config.pane_select_font_size = 36
 config.color_scheme = "tokyonight_night"
 
 -- Background Config
-config.background = {
-    {
-        source = {
-            File = {
-                path = wezterm.home_dir .. "/.config/wezterm/assets/blob.gif",
-            },
-        },
-        repeat_x = "NoRepeat",
-        repeat_y = "NoRepeat",
-        vertical_align = "Middle",
-        horizontal_align = "Center",
-        width = "100%",
-        height = "Cover", --Cover, Contain, 123 specific pixels, 20% percentage, 
-        opacity = 1.00,
-        hsb = {
-            hue = 0.9,
-            saturation = 0.8,
-            brightness = 0.1,
-        },
-    },
-}
+config.Background = {}
+-- config.background = {
+--     {
+--         source = {
+--             File = {
+--                 path = wezterm.home_dir .. "/.config/wezterm/assets/blob.gif",
+--             },
+--         },
+--         repeat_x = "NoRepeat",
+--         repeat_y = "NoRepeat",
+--         vertical_align = "Middle",
+--         horizontal_align = "Center",
+--         width = "100%",
+--         height = "Cover",
+--         opacity = 1.00,
+--         hsb = {
+--             hue = 0.9,
+--             saturation = 0.8,
+--             brightness = 0.1,
+--         },
+--     },
+-- }
 
 config.window_background_opacity = 0.85
 config.window_background_image_hsb = {

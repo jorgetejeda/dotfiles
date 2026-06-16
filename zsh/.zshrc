@@ -7,9 +7,6 @@ export PATH="/usr/local/Cellar/openvpn/2.5.3/sbin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
-# ------ YARN --------- 
-
-export PATH="$PATH:$HOME/.yarn/bin"
 
 # ----- ZSH PLUGINS AND THEMES -----
 
@@ -17,11 +14,9 @@ export PATH="$PATH:$HOME/.yarn/bin"
 ZSH_DISABLE_COMPFIX="true"
 
 plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  zsh-autocomplete
-  web-search
+  git zsh-autosuggestions
+  git zsh-syntax-highlighting
+  web-search  
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -82,4 +77,7 @@ kill_pid(){
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # export SDKMAN_DIR="$HOME/.sdkman"
-#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh#"export PATH="$PATH:$(yarn global bin)"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh#"
+
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in *":$PNPM_HOME/bin:"*) ;; *) export PATH="$PNPM_HOME/bin:$PATH" ;; esac
