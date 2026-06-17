@@ -13,8 +13,8 @@ config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
 config.window_padding = {
-    left = 0,
-    right = 0,
+    left = 10,
+    right = 10,
     top = 20,
     bottom = 0,
 }
@@ -38,7 +38,6 @@ config.pane_select_font_size = 36
 config.color_scheme = "tokyonight_night"
 
 -- Background Config
-config.Background = {}
 -- config.background = {
 --     {
 --         source = {
