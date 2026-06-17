@@ -1,14 +1,13 @@
-# Fonts
+# --- Fonts ---
 # font-family = Iosevka
-font-family = "JetBrainsMono Nerd Font Mono"
+font-family = JetBrainsMono Nerd Font
 # font-family = Fira Code
 font-size = 14
+font-thicken = true
 
+# --- Theme ---
 background-opacity = 0.75
 background-blur-radius = 10
-
-# THEME
-
 background = #282828
 foreground = #eeeeee
 selection-background = #293b44
@@ -31,26 +30,26 @@ palette = 12=#b3deef
 palette = 13=#d3b987
 palette = 14=#73cef4
 palette = 15=#ffffff
+bold-color = bright
 
+# --- UI ---
+split-divider-color = #ffc24b
+gtk-tabs-location = hidden
+macos-titlebar-proxy-icon = hidden
 
-bold-color=bright
-split-divider-color=#ffc24b
-
-
+# --- Window ---
 window-decoration = true
-
 # Ajustar el padding horizontal y vertical
 window-padding-x = 10
 window-padding-y = 10
-
 # Balancear el padding automáticamente en los bordes
 window-padding-balance = true
-
 window-padding-color = extend
 window-step-resize = false
 window-height = 50
 window-width = 100
 
-gtk-tabs-location = hidden
-
+# --- Mouse/Keyboard & System ---
 macos-option-as-alt = true
+clipboard-write = allow
+confirm-close-surface = false
