@@ -1,0 +1,56 @@
+# Fonts
+# font-family = Iosevka
+font-family = "JetBrainsMono Nerd Font Mono"
+# font-family = Fira Code
+font-size = 14
+
+background-opacity = 0.75
+background-blur-radius = 10
+
+# THEME
+
+background = #282828
+foreground = #eeeeee
+selection-background = #293b44
+selection-foreground = #eeeeee
+cursor-color = #eeeeee
+cursor-text = #282828
+palette = 0=#282828
+palette = 1=#f43753
+palette = 2=#c9d05c
+palette = 3=#ffc24b
+palette = 4=#b3deef
+palette = 5=#d3b987
+palette = 6=#73cef4
+palette = 7=#eeeeee
+palette = 8=#1d1d1d
+palette = 9=#f43753
+palette = 10=#c9d05c
+palette = 11=#ffc24b
+palette = 12=#b3deef
+palette = 13=#d3b987
+palette = 14=#73cef4
+palette = 15=#ffffff
+
+
+bold-color=bright
+split-divider-color=#ffc24b
+
+
+window-decoration = true
+
+# Ajustar el padding horizontal y vertical
+window-padding-x = 10
+window-padding-y = 10
+
+# Balancear el padding automáticamente en los bordes
+window-padding-balance = true
+
+window-padding-color = extend
+window-step-resize = false
+window-height = 50
+window-width = 100
+
+gtk-tabs-location = hidden
+
+macos-option-as-alt = true
