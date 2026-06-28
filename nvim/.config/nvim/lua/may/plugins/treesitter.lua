@@ -2,10 +2,9 @@ return {
   "nvim-treesitter/nvim-treesitter",
   version = "^0.9.2", -- Forzamos una versión semántica estable lanzada oficialmente
   event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate", 
+  build = ":TSUpdate",
   config = function()
     local install = require("nvim-treesitter.install")
-    
     install.ensure_installed = {
       "json", "javascript", "typescript", "tsx", "yaml", "html", "css",
       "prisma", "markdown", "markdown_inline", "svelte", "graphql",

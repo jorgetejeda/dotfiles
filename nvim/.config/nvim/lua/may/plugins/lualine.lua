@@ -12,13 +12,14 @@ return {
       section_separators = "",
       component_separators = "",
       globalstatus = true,
-      theme = {
-        normal = {
-          a = "StatusLine",
-          b = "StatusLine",
-          c = "StatusLine",
-        },
-      },
+      theme = 'auto',
+      -- theme = {
+      --   normal = {
+      --     a = "StatusLine",
+      --     b = "StatusLine",
+      --     c = "StatusLine",
+      --   },
+      -- },
     },
     sections = {
       lualine_a = {
@@ -30,8 +31,10 @@ return {
           "diff",
           symbols = { added = " ", modified = " ", removed = " " },
         },
+        -- --- CORRECCIÓN DE DEPRECATION: buf_get_clients -> get_clients ---
         function()
-          return "󰅭 " .. vim.pesc(tostring(#vim.tbl_keys(vim.lsp.buf_get_clients())) or "")
+          local clients = vim.lsp.get_clients({ bufnr = 0 })
+          return "󰅭 " .. vim.pesc(tostring(#clients) or "0")
         end,
         { "diagnostics", sources = { "nvim_diagnostic" } },
       },
@@ -39,9 +42,10 @@ return {
         "filename",
       },
       lualine_x = {
+        -- Protegido con función para evitar colisiones en la carga inicial de Lazy
         {
-          require("lazy.status").updates,
-          cond = require("lazy.status").has_updates,
+          function() return require("lazy.status").updates() end,
+          cond = function() return require("lazy.status").has_updates() end,
           color = { fg = "#ff9e64" },
         },
       },
