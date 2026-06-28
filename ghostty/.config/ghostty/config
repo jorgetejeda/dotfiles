@@ -53,3 +53,4 @@ window-width = 100
 macos-option-as-alt = true
 clipboard-write = allow
 confirm-close-surface = false
+mouse-hide-while-typing = true
