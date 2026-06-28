@@ -31,8 +31,8 @@ alias desktop='cd ~/Desktop'
 
 # ----- FILES (show or hice) -----
 
-alias showFiles='defaults write com.apple.Finder AppleShowAllFiles true && killall Finder'
-alias hideFiles='defaults write com.apple.Finder AppleShowAllFiles false && killall Finder'
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles -bool true && killall cfprefsd && killall Finder'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles -bool false && killall cfprefsd && killall Finder'
 alias hideDesktop='defaults write com.apple.finder CreateDesktop false; killall Finder'
 alias showDesktop='defaults write com.apple.finder CreateDesktop true; killall Finder'
 
@@ -75,3 +75,6 @@ alias showAliases='cat ~/.zshrc | grep alias'
 # ---- Eza (better ls) -----
 alias ls="eza --color=always --long --icons=always --no-time --no-user --no-permissions"
 alias pnpm='npx pnpm'
+
+# ----- CLIPBOARD IMAGE -----
+alias cpimg='pngpaste /tmp/clipboard_$(date +%s).png && ls /tmp/clipboard_*.png | tail -1 | tee /dev/tty | tr -d "\n" | pbcopy'

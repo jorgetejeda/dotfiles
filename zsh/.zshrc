@@ -21,7 +21,7 @@ plugins=(
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#888888'
 source $ZSH/oh-my-zsh.sh
-[[ -f ~/dotfiles/zsh/alias.zsh ]] && source ~/dotfiles/zsh/.alias.zsh
+[[ -f ~/dotfiles/zsh/.alias.zsh ]] && source ~/dotfiles/zsh/.alias.zsh
 
 # ----- STARSHIP --------
 
