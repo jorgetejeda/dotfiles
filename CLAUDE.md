@@ -21,6 +21,7 @@ bash ./zsh/installation.sh
 bash ./nvim/.config/nvim/installation.sh
 bash ./starship/.config/installation.sh
 bash ./wezterm/.config/wezterm/installation.sh
+bash ./zellij/.config/zellij/installation.sh
 bash ./yabai/.config/yabai/installation.sh   # handles both yabai and skhd
 ```
 
@@ -68,6 +69,11 @@ Each tool directory mirrors the filesystem tree rooted at `$HOME`. For example:
 ### Starship (starship/)
 - TOML config at `starship/.config/starship/starship.toml`
 - Custom prompt symbols, directory truncation (3 levels), git status indicators
+
+### Zellij (zellij/)
+- KDL config at `zellij/.config/zellij/config.kdl`
+- Kanagawa theme; `Ctrl+g` toggles locked mode; `Alt+f` toggles floating panes; `Ctrl+o` enters session mode (`w` = session manager)
+- Installed via `instalar_brew "zellij"` from its own `installation.sh`
 
 ## Notes
 

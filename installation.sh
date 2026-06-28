@@ -113,13 +113,14 @@ ejecutar_instalacion "Zsh + Oh My Zsh"   "$DOTFILES_DIR/zsh/installation.sh"
 ejecutar_instalacion "Neovim"            "$DOTFILES_DIR/nvim/.config/nvim/installation.sh"
 ejecutar_instalacion "Starship"          "$DOTFILES_DIR/starship/.config/installation.sh"
 ejecutar_instalacion "WezTerm"           "$DOTFILES_DIR/wezterm/.config/wezterm/installation.sh"
+ejecutar_instalacion "Zellij"            "$DOTFILES_DIR/zellij/.config/zellij/installation.sh"
 ejecutar_instalacion "Yabai + Skhd"     "$DOTFILES_DIR/yabai/.config/yabai/installation.sh"
 
 # Paso 5: Aplicar todos los symlinks de configuración
 echo ""
 echo "--- Symlinks de configuración (stow) ---"
 if preguntar "¿Deseas aplicar todos los symlinks de configuración ahora?"; then
-  for tool in zsh nvim starship wezterm yabai skhd; do
+  for tool in zsh nvim starship wezterm zellij yabai skhd; do
     if [ -d "$DOTFILES_DIR/$tool" ]; then
       echo "  Aplicando $tool..."
       stow --restow --target="$HOME" -d "$DOTFILES_DIR" "$tool"
