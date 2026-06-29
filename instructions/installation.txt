@@ -1,24 +1,20 @@
 # Normal applications (Install via Homebrew)
 stow
 rectangle
-alfred
 mysql
 keka
 git
 node
 nvm
 yarn
-yabai
-skhd 
 starship
 openssh
 eza
 
 # Installation using Homebrew Cask (Install via Cask)
-wezterm
+alfred
 font-fira-code-nerd-font
 font-jetbrains-mono-nerd-font
 bruno
-warp
-tableplus 
+tableplus
 microsoft-teams

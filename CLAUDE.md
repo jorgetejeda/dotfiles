@@ -20,9 +20,8 @@ chmod +x ./installation.sh && ./installation.sh
 bash ./zsh/installation.sh
 bash ./nvim/.config/nvim/installation.sh
 bash ./starship/.config/installation.sh
-bash ./wezterm/.config/wezterm/installation.sh
 bash ./zellij/.config/zellij/installation.sh
-bash ./yabai/.config/yabai/installation.sh   # handles both yabai and skhd
+bash ./alfred/installation.sh   # installs Alfred + points its sync folder at the repo
 ```
 
 **Stow manual de un config específico:**
@@ -57,15 +56,6 @@ Each tool directory mirrors the filesystem tree rooted at `$HOME`. For example:
 - `.alias.zsh` — All aliases (git shortcuts, eza as `ls`, DB management, SSH helpers)
 - Plugins: git, zsh-autosuggestions, zsh-syntax-highlighting, web-search
 
-### Window Management (yabai/ + skhd/)
-- **Yabai**: BSP tiling layout with 12px gaps/padding. Excludes System Settings, Calculator, Alfred from management.
-- **Skhd**: Hotkeys use `Alt` as base modifier — `Alt+hjkl` for focus, `Shift+Alt` for window operations, `Ctrl+Alt` for warp/move.
-- Both require macOS security permissions and run as background services. Their installation script is shared at `yabai/.config/yabai/installation.sh`.
-
-### WezTerm (wezterm/)
-- Lua config at `wezterm/.config/wezterm/wezterm.lua`
-- Tokyo Night theme, FiraCode Nerd Font size 16, animated GIF background (`blob.gif`), window opacity 0.85, blur 30
-
 ### Starship (starship/)
 - TOML config at `starship/.config/starship/starship.toml`
 - Custom prompt symbols, directory truncation (3 levels), git status indicators
@@ -75,8 +65,11 @@ Each tool directory mirrors the filesystem tree rooted at `$HOME`. For example:
 - Kanagawa theme; `Ctrl+g` toggles locked mode; `Alt+f` toggles floating panes; `Ctrl+o` enters session mode (`w` = session manager)
 - Installed via `instalar_brew "zellij"` from its own `installation.sh`
 
+### Alfred (alfred/)
+- Not stow-managed. The `Alfred.alfredpreferences` bundle lives at `alfred/Alfred.alfredpreferences` and Alfred is pointed at it via its **sync folder** setting (requires Alfred Powerpack).
+- `alfred/installation.sh` installs the Alfred cask and runs `defaults write com.runningwithcrocodiles.Alfred syncfolder -string "$DOTFILES_DIR/alfred"`. Alfred must be launched once (and Powerpack active) to adopt it.
+
 ## Notes
 
 - Installation scripts are written in Spanish.
 - All scripts must be run from the dotfiles root directory (relative paths depend on it).
-- Yabai and skhd installations trigger macOS security permission dialogs — the scripts will prompt to accept them manually.
