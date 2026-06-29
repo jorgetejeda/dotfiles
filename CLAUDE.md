@@ -20,6 +20,7 @@ chmod +x ./installation.sh && ./installation.sh
 bash ./zsh/installation.sh
 bash ./nvim/.config/nvim/installation.sh
 bash ./starship/.config/installation.sh
+bash ./ghostty/.config/ghostty/installation.sh
 bash ./zellij/.config/zellij/installation.sh
 bash ./alfred/installation.sh   # installs Alfred + points its sync folder at the repo
 ```
@@ -59,6 +60,11 @@ Each tool directory mirrors the filesystem tree rooted at `$HOME`. For example:
 ### Starship (starship/)
 - TOML config at `starship/.config/starship/starship.toml`
 - Custom prompt symbols, directory truncation (3 levels), git status indicators
+
+### Ghostty (ghostty/)
+- Config at `ghostty/.config/ghostty/config`
+- JetBrainsMono Nerd Font size 14, gruvbox-ish palette, `background-opacity = 0.75`, blur 10, `macos-option-as-alt = true`
+- Installed via `instalar_brew_cask "ghostty"` from its own `installation.sh`
 
 ### Zellij (zellij/)
 - KDL config at `zellij/.config/zellij/config.kdl`

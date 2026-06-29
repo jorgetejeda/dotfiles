@@ -112,6 +112,7 @@ instalar_claude_code
 ejecutar_instalacion "Zsh + Oh My Zsh"   "$DOTFILES_DIR/zsh/installation.sh"
 ejecutar_instalacion "Neovim"            "$DOTFILES_DIR/nvim/.config/nvim/installation.sh"
 ejecutar_instalacion "Starship"          "$DOTFILES_DIR/starship/.config/installation.sh"
+ejecutar_instalacion "Ghostty"           "$DOTFILES_DIR/ghostty/.config/ghostty/installation.sh"
 ejecutar_instalacion "Zellij"            "$DOTFILES_DIR/zellij/.config/zellij/installation.sh"
 ejecutar_instalacion "Alfred"            "$DOTFILES_DIR/alfred/installation.sh"
 
@@ -119,7 +120,7 @@ ejecutar_instalacion "Alfred"            "$DOTFILES_DIR/alfred/installation.sh"
 echo ""
 echo "--- Symlinks de configuración (stow) ---"
 if preguntar "¿Deseas aplicar todos los symlinks de configuración ahora?"; then
-  for tool in zsh nvim starship zellij; do
+  for tool in zsh nvim starship ghostty zellij; do
     if [ -d "$DOTFILES_DIR/$tool" ]; then
       echo "  Aplicando $tool..."
       stow --restow --target="$HOME" -d "$DOTFILES_DIR" "$tool"
