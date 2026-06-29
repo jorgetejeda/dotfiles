@@ -70,6 +70,7 @@ Each tool directory mirrors the filesystem tree rooted at `$HOME`. For example:
 - KDL config at `zellij/.config/zellij/config.kdl`
 - Kanagawa theme; `Ctrl+g` toggles locked mode; `Alt+f` toggles floating panes; `Ctrl+o` enters session mode (`w` = session manager)
 - Installed via `instalar_brew "zellij"` from its own `installation.sh`
+- **zellij-attention plugin**: versioned `.wasm` at `zellij/.config/zellij/plugins/zellij-attention.wasm`, loaded via the `load_plugins` block in `config.kdl`. It adds ⏳/✅ icons to tab names when a Claude Code session is waiting/done. Driven by Claude Code hooks (`Notification`/`Stop`) that the zellij `installation.sh` registers idempotently into `~/.claude/settings.json` via `jq` (requires `jq`).
 
 ### Alfred (alfred/)
 - Not stow-managed. The `Alfred.alfredpreferences` bundle lives at `alfred/Alfred.alfredpreferences` and Alfred is pointed at it via its **sync folder** setting (requires Alfred Powerpack).
