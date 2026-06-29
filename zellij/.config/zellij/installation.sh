@@ -22,9 +22,11 @@ if [ -f "$SETTINGS" ] && command -v jq >/dev/null 2>&1; then
     STOP_CMD='[ -n "$ZELLIJ_PANE_ID" ] && zellij pipe --name "zellij-attention::completed::$ZELLIJ_PANE_ID" || true'
     tmp="$(mktemp)"
     if jq --arg notif "$NOTIF_CMD" --arg stop "$STOP_CMD" '
+        def strip: (. // []) | map(select((.hooks // []) | any((.command // "") | contains("zellij-attention")) | not));
         .hooks //= {}
-        | .hooks.Notification = (((.hooks.Notification // []) | map(select((.hooks // []) | any((.command // "") | contains("zellij-attention")) | not))) + [{matcher:"", hooks:[{type:"command", command:$notif}]}])
-        | .hooks.Stop        = (((.hooks.Stop // [])        | map(select((.hooks // []) | any((.command // "") | contains("zellij-attention")) | not))) + [{hooks:[{type:"command", command:$stop}]}])
+        | .hooks.UserPromptSubmit = ((.hooks.UserPromptSubmit | strip) + [{hooks:[{type:"command", command:$notif}]}])
+        | .hooks.Notification     = ((.hooks.Notification | strip)     + [{matcher:"", hooks:[{type:"command", command:$notif}]}])
+        | .hooks.Stop             = ((.hooks.Stop | strip)             + [{hooks:[{type:"command", command:$stop}]}])
       ' "$SETTINGS" > "$tmp"; then
       mv "$tmp" "$SETTINGS"
       echo "  Hooks de zellij-attention registrados. Reinicia Claude Code para que tomen efecto."
