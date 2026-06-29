@@ -56,23 +56,6 @@ else
   fi
 fi
 
-# Symlink Docker socket para compatibilidad con ctop y otras herramientas
-# Colima expone el socket en $HOME/.colima/default/docker.sock, pero muchas
-# herramientas asumen /var/run/docker.sock.
-COLIMA_SOCK="${HOME}/.colima/default/docker.sock"
-DOCKER_SOCK="/var/run/docker.sock"
-
-if [ -L "$DOCKER_SOCK" ] && [ "$(readlink "$DOCKER_SOCK")" = "$COLIMA_SOCK" ]; then
-  echo "  [OK] Symlink $DOCKER_SOCK ya existe y apunta a Colima."
-else
-  if preguntar "¿Deseas crear el symlink $DOCKER_SOCK → Colima? (requiere sudo)"; then
-    sudo ln -sf "$COLIMA_SOCK" "$DOCKER_SOCK"
-    echo "  Symlink creado: $DOCKER_SOCK → $COLIMA_SOCK"
-  else
-    echo "  Omitiendo symlink de Docker."
-  fi
-fi
-
 # Symlinks
 if preguntar "¿Deseas sobrescribir ~/.zshrc con el de este repositorio?"; then
   [ -f "$HOME/.zshrc" ] && rm "$HOME/.zshrc"
