@@ -126,6 +126,29 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 | `<leader>ec` | Colapsar explorador |
 | `<leader>er` | Refrescar explorador |
 
+### Manipular archivos y carpetas (dentro del árbol)
+
+> ⚠️ Estas teclas solo funcionan con el **foco dentro del explorador** (son mapeos internos de nvim-tree, no llevan `<leader>`). Se aplican sobre el nodo bajo el cursor.
+
+| Tecla | Acción |
+|---|---|
+| `a` | **Crear** archivo o carpeta — termina el nombre con `/` para que sea carpeta (`src/`) |
+| `r` | **Renombrar** (nombre completo) |
+| `e` | Renombrar solo el **basename** (sin la extensión) |
+| `<C-r>` | Renombrar borrando el nombre actual para escribir de cero |
+| `u` | Renombrar con la **ruta completa** |
+| `d` | **Eliminar** (pide confirmación) |
+| `D` | Eliminar enviando a la **papelera** (trash) |
+| `x` | **Cortar** (para mover) |
+| `c` | **Copiar** |
+| `p` | **Pegar** lo cortado/copiado dentro de la carpeta bajo el cursor |
+| `y` | Copiar el **nombre** del archivo al portapapeles |
+| `Y` | Copiar la **ruta relativa** |
+| `gy` | Copiar la **ruta absoluta** |
+
+**Mover** un archivo = `x` (cortar) → navega a la carpeta destino → `p` (pegar).
+**Duplicar/copiar** = `c` (copiar) → navega al destino → `p` (pegar).
+
 ---
 
 ## 🧠 LSP (lsp/lspconfig.lua)
