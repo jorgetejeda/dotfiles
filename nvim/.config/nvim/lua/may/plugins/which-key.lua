@@ -33,11 +33,11 @@ return {
     -- ----------------------------------------------
 
     wk.add({
-      -- Multi-cursor (vim-multiple-cursors) — configurados via vim.g, which-key no los detecta automáticamente
-      { "<C-n>", desc = "Ctrl+n → iniciar/siguiente multicursor en la palabra" },
-      { "<C-p>", desc = "Ctrl+p → quitar última selección multicursor" },
-      { "<C-x>", desc = "Ctrl+x → saltar coincidencia multicursor" },
-      { "g<C-n>", desc = "g + Ctrl+n → multicursor en posición exacta" },
+      -- Multi-cursor (vim-visual-multi) — configurados via vim.g, which-key no los detecta automáticamente
+      { "<C-n>", desc = "Ctrl+n → seleccionar palabra / añadir siguiente ocurrencia" },
+      { "<C-Down>", desc = "Ctrl+↓ → añadir cursor abajo" },
+      { "<C-Up>", desc = "Ctrl+↑ → añadir cursor arriba" },
+      { "\\A", desc = "\\A → seleccionar TODAS las ocurrencias" },
     })
   end,
 }

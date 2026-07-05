@@ -74,6 +74,30 @@ Plugin: `chentoast/marks.nvim` → `nvim/.config/nvim/lua/may/plugins/marks.lua`
 | `<Esc>n` / `<Esc>N` | ñ / Ñ |
 | `<M-?>` / `<M-!>` | ¿ / ¡ |
 
+### Teclas de control (`Ctrl`) — según el contexto
+
+> ⚠️ Casi ninguna `Ctrl` es global: solo actúan **dentro** de su contexto (picker de Telescope, menú de autocompletado, chat, etc.). Por eso `<C-k>` hace cosas distintas según dónde estés.
+
+| Tecla | Contexto | Acción |
+|---|---|---|
+| `<C-k>` / `<C-j>` | Picker de Telescope | Selección anterior / siguiente |
+| `<C-q>` | Picker de Telescope | Enviar selección a la quickfix list |
+| `<C-k>` / `<C-j>` | Menú de autocompletado (cmp) | Ítem anterior / siguiente |
+| `<C-b>` / `<C-f>` | Menú de autocompletado (cmp) | Scroll de la documentación |
+| `<C-Space>` | Insert (cmp) | Disparar el autocompletado |
+| `<C-e>` | Insert (cmp) | Cancelar el autocompletado |
+| `<C-]>` / `<C-[>` | Insert (Copilot) | Sugerencia siguiente / anterior |
+| `<C-\>` | Insert (Copilot) | Descartar la sugerencia |
+| `<C-l>` | CopilotChat | Reiniciar el chat |
+| `<C-s>` | Insert (CopilotChat) | Enviar el mensaje |
+| `<C-y>` | CopilotChat | Aceptar el diff |
+| `<C-c>` | Insert (CopilotChat) | Cerrar el chat |
+| `<C-n>` | Normal/visual (multicursor) | Seleccionar palabra / añadir siguiente ocurrencia |
+| `<C-Down>` / `<C-Up>` | Normal (multicursor) | Añadir cursor abajo / arriba |
+| `<C-w>c` | Cualquier ventana flotante | Cerrar la flotante (p. ej. el preview de marks) |
+
+> Las combinaciones `<C-w>...` son de **Vim nativo** para ventanas (`<C-w>v` split vertical, `<C-w>s` horizontal, `<C-w>=` igualar, `<C-w>|` ancho máximo). Tus atajos `<leader>sv/sh/se/sx` no son más que alias de esos comandos. `<C-^>` alterna con el archivo anterior (usado por `<leader>\``).
+
 ---
 
 ## 🔭 Telescope (telescope.lua)
@@ -223,14 +247,32 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 
 **Comment.nvim** (comment.lua): `gcc` comentar línea · `gc` (visual) comentar selección · `gbc` comentar en bloque.
 
-**vim-multiple-cursors** (multi-line.lua, ver which-key):
+**nvim-rip-substitute** (rip.lua) — buscar y reemplazar con preview en vivo (ripgrep):
+
+| Tecla | Modo | Acción |
+|---|---|---|
+| `<leader>fu` | normal | Reemplazar en **todo el archivo** (abre UI con preview) |
+| `<leader>fu` | visual | Reemplazar solo en la **selección** |
+
+> Es la forma **más rápida de reemplazar todas las ocurrencias** de una palabra: no seleccionas nada, escribes viejo → nuevo y confirmas. Más simple que `\A` del multicursor.
+
+**vim-visual-multi** (multi-line.lua) — multicursor. ⚠️ **Solo funciona en modo normal/visual, no en insert** (en insert `<C-n>` es el autocompletado de Vim).
+
+Flujo: pon el cursor sobre una palabra en **modo normal** → `<C-n>` la selecciona → `<C-n>` de nuevo añade la siguiente ocurrencia → edita con `c`/`d`/`I`/`A` → `<Esc>` para salir.
 
 | Tecla | Acción |
 |---|---|
-| `<C-n>` | Iniciar/siguiente multicursor en la palabra |
-| `<C-p>` | Quitar última selección |
-| `<C-x>` | Saltar coincidencia |
-| `g<C-n>` | Multicursor en posición exacta |
+| `<C-n>` | Seleccionar palabra / añadir la siguiente ocurrencia |
+| `n` / `N` | Ir a la ocurrencia siguiente / anterior (con VM activo) |
+| `q` | Saltar la ocurrencia actual y buscar la siguiente |
+| `Q` | Quitar el cursor actual |
+| `[` / `]` | Navegar entre cursores |
+| `<C-Down>` / `<C-Up>` | Añadir cursor abajo / arriba (columna) |
+| `\A` | Seleccionar **todas** las ocurrencias de golpe |
+| `<Tab>` | Alternar entre modo cursor y modo extender (visual) |
+| `<Esc>` | Salir del multicursor |
+
+> Ejemplo — renombrar `user` (3 sitios): cursor sobre `user` → `<C-n>` `<C-n>` `<C-n>` → `c` → escribes `cliente` → `<Esc>`.
 
 **treesj** (treesj.lua) — expandir/juntar objetos y arrays: `<space>m` toggle · `<space>j` join · `<space>s` split.
 
