@@ -62,6 +62,7 @@ return {
 			"rcarriga/nvim-notify",
 			opts = {
 				background_colour = "#000000",
+				timeout = 2000, -- auto-ocultar tras 2s (default era 5s)
 			},
 		},
 	},

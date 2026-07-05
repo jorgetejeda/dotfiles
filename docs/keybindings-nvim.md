@@ -37,6 +37,7 @@ Plugin: `chentoast/marks.nvim` → `nvim/.config/nvim/lua/may/plugins/marks.lua`
 |---|---|---|
 | `jk` | insert | Salir a modo normal |
 | `<leader>nh` | normal | Limpiar el resaltado de búsqueda |
+| `<leader>un` | normal | Descartar las notificaciones (`:NoiceDismiss`) |
 | `<CR>` (Enter) | normal | Insertar línea abajo sin entrar a insert |
 | `<S-CR>` (Shift+Enter) | normal | Insertar línea arriba sin entrar a insert |
 | `<leader>\`` | normal | Alternar entre archivo actual y anterior |
@@ -46,6 +47,8 @@ Plugin: `chentoast/marks.nvim` → `nvim/.config/nvim/lua/may/plugins/marks.lua`
 | `<Esc>f` | normal/visual | Formatear código (conform) |
 
 **Folds:** `zc` cerrar · `zo` abrir · `za` toggle · `zR` abrir todos · `zM` cerrar todos.
+
+**Notificaciones:** los avisos (toasts) son de `noice.nvim` + `nvim-notify`. Se auto-ocultan a los **2s** (`timeout` en `cmdline.lua`); para descartarlas al instante usa `<leader>un`.
 
 ### Ventanas (splits)
 
