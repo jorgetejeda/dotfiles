@@ -168,6 +168,34 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 | `[d` / `]d` | Diagnóstico anterior / siguiente |
 | `<leader>rs` | Reiniciar LSP |
 
+### Navegar el historial de saltos (jumplist — nativo)
+
+> Cada `gd`/`<leader>gd`, búsqueda o salto grande queda registrado. Sirve para volver **N archivos atrás**, no solo el anterior.
+
+| Tecla | Acción |
+|---|---|
+| `<C-o>` | Volver **atrás** en el historial de saltos (N veces, cruza archivos) |
+| `<C-i>` (= `<Tab>`) | Ir **adelante** en el historial |
+| `<C-t>` | "Pop" del último salto a definición (pila de tags LSP) |
+| `:jumps` | Ver la lista completa de saltos |
+
+> Diferencia con `<leader>\``: ese solo **alterna entre 2 archivos** (actual ↔ anterior); el jumplist recorre toda la pila.
+
+**Cómo funciona:** un "salto" es un movimiento grande (`gd`, `<leader>gd`, `/buscar`, `G`, `{`/`}`). Moverte con `j`/`k`/`w` **no** cuenta. `<C-o>`/`<C-i>` son como los botones **atrás/adelante del navegador**, pero para el cursor (recuerdan archivo y línea). `N<C-o>` retrocede N saltos de golpe.
+
+`<C-t>` es más específico: solo deshace **saltos a definición**. Útil para bajar por definiciones anidadas y luego subir: `gd` `gd` `gd` → `<C-t>` `<C-t>` `<C-t>`. `<C-o>` en cambio deshace cualquier salto.
+
+`:jumps` muestra la lista; el `>` marca tu posición. Para saltar exacto, mira el número de la columna `jump` y pulsa `N<C-o>`:
+
+```
+ jump  line  col  file/text
+   2     42   12  services/user.ts    ← 2<C-o> te lleva aquí
+   1     88    2  utils.ts
+>  0
+```
+
+> `:clearjumps` limpia la lista. Para navegar tus **últimas ediciones** (no saltos) existe el *changelist*: `g;` (atrás) y `g,` (adelante).
+
 ---
 
 ## 🐙 Git
