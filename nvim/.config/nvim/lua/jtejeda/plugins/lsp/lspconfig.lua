@@ -108,10 +108,26 @@ return {
         })
       end,
       ["emmet_ls"] = function()
-        -- configure emmet language server
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
           filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+        })
+      end,
+      ["angularls"] = function()
+        lspconfig["angularls"].setup({
+          capabilities = capabilities,
+          filetypes = { "typescript", "html", "typescriptreact" },
+          root_dir = lspconfig.util.root_pattern("angular.json", "project.json"),
+          on_new_config = function(new_config, new_root_dir)
+            new_config.cmd = {
+              "ngserver",
+              "--stdio",
+              "--tsProbeLocations",
+              new_root_dir,
+              "--ngProbeLocations",
+              new_root_dir,
+            }
+          end,
         })
       end,
       ["lua_ls"] = function()
