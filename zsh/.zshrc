@@ -1,4 +1,11 @@
 
+# Subir el límite de descriptores de archivo: macOS lanza apps GUI (Ghostty)
+# con solo 256, lo que provoca "EMFILE: too many open files" en nvim cuando
+# gitsigns/LSP/treesitter abren muchos procesos. Guard: no lo baja si ya es mayor.
+if [ "$(ulimit -Sn)" -lt 10240 ]; then
+  ulimit -n 10240
+fi
+
 ZSH="$HOME/.oh-my-zsh"
 export PATH="/usr/local/Cellar/openvpn/2.5.3/sbin:$PATH"
 
