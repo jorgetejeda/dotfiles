@@ -53,14 +53,7 @@ keybinds clear-defaults=true {
         bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "normal"; }
         bind "Ctrl t" { SwitchToMode "normal"; }
-        bind "x" {
-            Run "bash" "-c" "printf '  ⚠️  Cerrar esta pestaña? (y = sí): '; read -n1 -r a; case $a in [yY]) zellij action close-tab;; esac" {
-                floating true
-                close_on_exit true
-                name "confirmar-cerrar-tab"
-            }
-            SwitchToMode "normal"
-        }
+        bind "x" { CloseTab; SwitchToMode "normal"; }
         bind "tab" { ToggleTab; }
     }
     resize {
@@ -172,13 +165,7 @@ keybinds clear-defaults=true {
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Ctrl q" {
-            Run "bash" "-c" "printf '  ⚠️  Cerrar Zellij? Presiona (y) para confirmar, cualquier otra tecla cancela: '; read -n1 -r a; case $a in [yY]) zellij kill-session $ZELLIJ_SESSION_NAME;; esac" {
-                floating true
-                close_on_exit true
-                name "confirmar-salida"
-            }
-        }
+        bind "Ctrl q" { Quit; }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
@@ -218,7 +205,7 @@ keybinds clear-defaults=true {
         bind "esc" { SwitchToMode "normal"; }
     }
     shared_among "pane" "tmux" {
-        bind "X" { CloseFocus; SwitchToMode "normal"; }
+        bind "x" { CloseFocus; SwitchToMode "normal"; }
     }
     shared_among "scroll" "search" {
         bind "PageDown" { PageScrollDown; }
@@ -253,14 +240,7 @@ keybinds clear-defaults=true {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
     shared_among "session" "tmux" {
-        bind "D" {
-            Run "bash" "-c" "printf '  ⚠️  Detach de la sesión? Sigue viva; reconecta con: zellij attach. (y = sí): '; read -n1 -r a; case $a in [yY]) zellij action detach;; esac" {
-                floating true
-                close_on_exit true
-                name "confirmar-detach"
-            }
-            SwitchToMode "normal"
-        }
+        bind "d" { Detach; }
     }
     tmux {
         bind "left" { MoveFocus "left"; SwitchToMode "normal"; }

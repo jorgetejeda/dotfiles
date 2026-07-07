@@ -43,7 +43,7 @@
 | `Alt i` / `Alt o` | Mover pestaña a la izquierda / derecha |
 | `Alt p` | Alternar panel en el grupo |
 | `Alt Shift p` | Toggle marcado de grupo |
-| `Ctrl q` | **Salir de Zellij** — abre un panel flotante de confirmación (`y` para cerrar, cualquier otra tecla cancela) |
+| `Ctrl q` | **Salir de Zellij** |
 
 ---
 
@@ -56,7 +56,7 @@
 | `d` | Nuevo panel abajo |
 | `r` | Nuevo panel a la derecha |
 | `s` | Nuevo panel apilado (stacked) |
-| `X` (mayúscula) | Cerrar panel enfocado — requiere Shift para evitar cierres accidentales |
+| `x` | Cerrar panel enfocado |
 | `f` | Fullscreen del panel |
 | `z` | Toggle bordes de panel (frames) |
 | `w` | Toggle paneles flotantes |
@@ -73,7 +73,7 @@
 | Tecla | Acción |
 |---|---|
 | `n` | Nueva pestaña |
-| `x` | Cerrar pestaña — pide confirmación en un panel flotante (`y` = sí) |
+| `x` | Cerrar pestaña |
 | `r` | Renombrar pestaña |
 | `1`–`9` | Ir a la pestaña 1–9 |
 | `h/k` o `←↑` | Pestaña anterior |
@@ -131,7 +131,7 @@
 | Tecla | Acción |
 |---|---|
 | `w` | **Session manager** (cambiar/crear sesiones) |
-| `D` (mayúscula) | **Detach** (desconectar de la sesión) — pide confirmación en un panel flotante (`y` = sí). La sesión sigue viva; reconecta con `zellij attach` |
+| `d` | **Detach** (desconectar de la sesión) |
 | `a` | Acerca de Zellij |
 | `c` | Configuración |
 | `l` | Gestor de layouts |
@@ -152,12 +152,12 @@ Compatibilidad con reflejos de tmux:
 | `c` | Nueva pestaña |
 | `n` / `p` | Pestaña siguiente / anterior |
 | `,` | Renombrar pestaña |
-| `X` (mayúscula) | Cerrar panel — requiere Shift |
+| `x` | Cerrar panel |
 | `z` | Fullscreen |
 | `o` | Siguiente panel |
 | `space` | Siguiente layout |
 | `[` | Entrar a modo scroll |
-| `D` (mayúscula) | Detach — pide confirmación (`y` = sí) |
+| `d` | Detach |
 | `h/j/k/l` o flechas | Mover foco |
 | `Ctrl b` | Enviar `Ctrl b` literal a la terminal |
 
