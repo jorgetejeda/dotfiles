@@ -19,8 +19,8 @@ return {
       map("n", "<leader>gbl", gs.blame, "Blame panel (navigate commits)")
 
       -- Hunks
-      map("n", "<leader>hn", gs.next_hunk, "Next git hunk")
-      map("n", "<leader>hp", gs.prev_hunk, "Prev git hunk")
+      map("n", "<leader>gn", gs.next_hunk, "Next git hunk")
+      map("n", "<leader>gN", gs.prev_hunk, "Prev git hunk")
       map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
       map("n", "<leader>gr", gs.reset_hunk, "Reset hunk")
     end,
