@@ -24,5 +24,10 @@ return {
       -- for commenting tsx, jsx, svelte, html files
       pre_hook = ts_context_commentstring.create_pre_hook(),
     })
+
+    -- Alias <leader>gc además de los gcc/gc nativos: reutiliza los <Plug> del plugin
+    local keymap = vim.keymap
+    keymap.set("n", "<leader>gc", "<Plug>(comment_toggle_linewise_current)", { desc = "Comentar línea actual" })
+    keymap.set("x", "<leader>gc", "<Plug>(comment_toggle_linewise_visual)", { desc = "Comentar selección" })
   end,
 }
