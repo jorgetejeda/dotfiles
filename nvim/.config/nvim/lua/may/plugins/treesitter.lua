@@ -4,14 +4,19 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   config = function()
-    local install = require("nvim-treesitter.install")
-    install.ensure_installed = {
-      "json", "javascript", "typescript", "tsx", "yaml", "html", "css",
-      "prisma", "markdown", "markdown_inline", "svelte", "graphql",
-      "bash", "lua", "vim", "dockerfile", "gitignore", "query", "vimdoc", "c",
-    }
-    install.sync_install = false
-    install.auto_install = false
+    -- ensure_installed va dentro de configs.setup(): asignarlo como campo de
+    -- nvim-treesitter.install sobrescribe una FUNCIÓN del plugin y nunca instala.
+    -- auto_install descarga el parser que falte al abrir un filetype (evita el
+    -- crash "attempt to index local 'tree' (a nil value)" de Comment.nvim en 0.12).
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = {
+        "json", "javascript", "typescript", "tsx", "yaml", "html", "css",
+        "prisma", "markdown", "markdown_inline", "svelte", "graphql",
+        "bash", "lua", "vim", "dockerfile", "gitignore", "query", "vimdoc", "c",
+      },
+      sync_install = false,
+      auto_install = true,
+    })
 
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(ev)
