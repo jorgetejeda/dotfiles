@@ -170,7 +170,7 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 
 ### Navegar el historial de saltos (jumplist — nativo)
 
-> Cada `gd`/`<leader>gd`, búsqueda o salto grande queda registrado. Sirve para volver **N archivos atrás**, no solo el anterior.
+> Cada `gd`, búsqueda o salto grande queda registrado. Sirve para volver **N archivos atrás**, no solo el anterior.
 
 | Tecla | Acción |
 |---|---|
@@ -181,7 +181,7 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 
 > Diferencia con `<leader>\``: ese solo **alterna entre 2 archivos** (actual ↔ anterior); el jumplist recorre toda la pila.
 
-**Cómo funciona:** un "salto" es un movimiento grande (`gd`, `<leader>gd`, `/buscar`, `G`, `{`/`}`). Moverte con `j`/`k`/`w` **no** cuenta. `<C-o>`/`<C-i>` son como los botones **atrás/adelante del navegador**, pero para el cursor (recuerdan archivo y línea). `N<C-o>` retrocede N saltos de golpe.
+**Cómo funciona:** un "salto" es un movimiento grande (`gd`, `/buscar`, `G`, `{`/`}`). Moverte con `j`/`k`/`w` **no** cuenta. `<C-o>`/`<C-i>` son como los botones **atrás/adelante del navegador**, pero para el cursor (recuerdan archivo y línea). `N<C-o>` retrocede N saltos de golpe.
 
 `<C-t>` es más específico: solo deshace **saltos a definición**. Útil para bajar por definiciones anidadas y luego subir: `gd` `gd` `gd` → `<C-t>` `<C-t>` `<C-t>`. `<C-o>` en cambio deshace cualquier salto.
 
@@ -244,24 +244,7 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 | `<leader>a` | Abrir menú rápido de Harpoon |
 | `<leader>1`…`<leader>5` | Saltar al archivo 1…5 |
 
-> ⚠️ **Nota:** `<leader>a` y `<leader>h` colisionan con claude-code (`<leader>a`) e image-preview (`<leader>p`)/harpoon. El último plugin cargado gana — revisa si Harpoon o Claude Code responde según el orden de carga.
-
----
-
-## 🤖 Claude Code (claude-code.lua)
-
-| Tecla | Acción |
-|---|---|
-| `<leader>ac` | Toggle Claude |
-| `<leader>af` | Focus Claude |
-| `<leader>ar` | Resume Claude |
-| `<leader>aC` | Continue Claude |
-| `<leader>am` | Seleccionar modelo |
-| `<leader>ab` | Agregar buffer actual |
-| `<leader>as` | Enviar selección (visual) / agregar archivo (árbol) |
-| `<leader>aa` / `<leader>ad` | Aceptar / rechazar diff |
-| `<leader>at` | Continuar conversación reciente |
-| `<leader>av` | Logging verbose |
+> ℹ️ **Nota:** Harpoon usa `<leader>a` (menú) y `<leader>h` (agregar). Ya no hay colisión con Claude Code (ese plugin fue removido). `<leader>p` es de image-preview.
 
 ---
 
@@ -343,6 +326,97 @@ Flujo: pon el cursor sobre una palabra en **modo normal** → `<C-n>` la selecci
 | `<leader>l` | nvim-lint | Ejecutar linter en el archivo |
 | `<leader>wr` | auto-session | Restaurar sesión del cwd |
 | `<leader>ws` | auto-session | Guardar sesión del cwd |
+
+---
+
+## 🧩 Plugins instalados (perfil `may`)
+
+> Fuente: specs en `nvim/.config/nvim/lua/may/plugins/`. Gestor: **lazy.nvim**.
+
+### 🎨 Colorscheme y UI
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `ellisonleao/gruvbox.nvim` | Colorscheme **activo** (catppuccin, tokyonight y sonokai están instalados pero inactivos) | `colorschema.lua` |
+| `nvim-lualine/lualine.nvim` | Statusline | `lualine.lua` |
+| `goolord/alpha-nvim` | Dashboard de inicio | `alpha.lua` |
+| `folke/noice.nvim` | UI de cmdline / mensajes / notificaciones (+ `nvim-notify`, `nui.nvim`) | `cmdline.lua` |
+| `stevearc/dressing.nvim` | Mejora los `input`/`select` de Neovim | `dressing.lua` |
+| `lukas-reineke/indent-blankline.nvim` | Guías de indentación | `index-blankline.lua` |
+| `folke/which-key.nvim` | Ayuda de atajos en pantalla | `which-key.lua` |
+| `folke/zen-mode.nvim` | Modo zen (sin distracciones) | `ui.lua` |
+| `folke/twilight.nvim` | Atenúa el código inactivo | `twilight.lua` |
+| `tris203/precognition.nvim` | Pistas de movimiento | `precognition.lua` |
+| `NStefan002/screenkey.nvim` | Muestra las teclas pulsadas en pantalla | `screenkey.lua` |
+| `MeanderingProgrammer/render-markdown.nvim` | Renderiza markdown en el buffer | `markdown.lua` |
+| `adelarsq/image_preview.nvim` | Previsualiza imágenes | `image-preview.lua` |
+
+### 🧭 Navegación y archivos
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `nvim-telescope/telescope.nvim` | Fuzzy finder (+ `telescope-fzf-native`) | `telescope.lua` |
+| `nvim-tree/nvim-tree.lua` | Explorador de archivos | `nvim-tree.lua` |
+| `theprimeagen/harpoon` | Marcado rápido de archivos | `harpoon.lua` |
+| `chentoast/marks.nvim` | Marcas visuales | `marks.lua` |
+| `christoomey/vim-tmux-navigator` | Navegación entre splits / tmux | `init.lua` |
+
+### 🧠 LSP, completado y snippets
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `neovim/nvim-lspconfig` | Configuración de servidores LSP | `lsp/lspconfig.lua` |
+| `williamboman/mason.nvim` | Gestor de LSP / linters / formatters (+ `mason-lspconfig`, `mason-tool-installer`) | `lsp/mason.lua` |
+| `hrsh7th/nvim-cmp` | Autocompletado (+ `cmp-buffer/path/nvim-lsp`, `lspkind`) | `nvim-cmp.lua` |
+| `L3MON4D3/LuaSnip` + `friendly-snippets` | Motor y colección de snippets | `nvim-cmp.lua` |
+
+### ✍️ Edición
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `numToStr/Comment.nvim` | Comentar código (+ `nvim-ts-context-commentstring`) | `comment.lua` |
+| `kylechui/nvim-surround` | Rodear con pares (`( )`, `" "`, tags…) | `surround.lua` |
+| `windwp/nvim-autopairs` | Cierre automático de pares | `autopairs.lua` |
+| `windwp/nvim-ts-autotag` | Cierre automático de tags HTML/JSX | `autotag.lua` |
+| `mg979/vim-visual-multi` | Multicursor | `multi-line.lua` |
+| `chrisgrieser/nvim-rip-substitute` | Buscar/reemplazar con preview (ripgrep) | `rip.lua` |
+| `Wansmer/treesj` | Split / join de objetos y arrays | `treesj.lua` |
+
+### 🌳 Sintaxis, formato y lint
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `nvim-treesitter/nvim-treesitter` | Parsing y resaltado (`auto_install` de parsers activo) | `treesitter.lua` |
+| `stevearc/conform.nvim` | Formateo de código | `formatting.lua` |
+| `mfussenegger/nvim-lint` | Linting | `linting.lua` |
+
+### 🐙 Git
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `lewis6991/gitsigns.nvim` | Signos de git, hunks y blame | `gitsigns.lua` |
+| `kdheepak/lazygit.nvim` | LazyGit integrado | `lazygit.lua` |
+
+### 🚦 Diagnósticos y TODOs
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `folke/trouble.nvim` | Lista de diagnósticos | `trouble.lua` |
+| `folke/todo-comments.nvim` | Resalta y navega TODOs | `todo-comment.lua` |
+
+### 🤖 IA
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `github/copilot.vim` | Sugerencias de Copilot | `copilot.lua` |
+| `CopilotC-Nvim/CopilotChat.nvim` | Chat con Copilot | `copilot-chat.lua` |
+
+### 🗂️ Sesiones y base
+
+| Plugin | Propósito | Spec |
+|---|---|---|
+| `rmagatti/auto-session` | Sesiones automáticas por directorio | `auto-session.lua` |
+| `nvim-lua/plenary.nvim` | Librería base (dependencia de varios plugins) | `init.lua` |
 
 ---
 

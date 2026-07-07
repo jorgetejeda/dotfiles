@@ -68,6 +68,21 @@
 
 ---
 
+## 📚 Apilar paneles (stacked)
+
+**Crear un panel apilado nuevo (directo):** `Ctrl p` → `s`.
+
+**Apilar paneles que YA existen** (cambiando el layout):
+
+| Paso | Tecla | Acción |
+|---|---|---|
+| 1 | `Alt n` | Abre un segundo panel |
+| 2 | `Alt [` | Cambia al layout **apilado** (Stacked) |
+
+> `Alt [` / `Alt ]` **ciclan** entre los swap layouts disponibles (incluido el apilado), así que si `Alt [` no lo deja apilado a la primera, vuelve a pulsar hasta llegar al layout deseado. Con los paneles apilados, muévete entre ellos con `Alt h/j/k/l`.
+
+---
+
 ## 📑 Modo Tab (`Ctrl t`)
 
 | Tecla | Acción |
