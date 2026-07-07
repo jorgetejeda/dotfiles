@@ -53,7 +53,14 @@ keybinds clear-defaults=true {
         bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "normal"; }
         bind "Ctrl t" { SwitchToMode "normal"; }
-        bind "x" { CloseTab; SwitchToMode "normal"; }
+        bind "x" {
+            Run "bash" "-c" "printf '  ⚠️  Cerrar esta pestaña? (y = sí): '; read -n1 -r a; case $a in [yY]) zellij action close-tab;; esac" {
+                floating true
+                close_on_exit true
+                name "confirmar-cerrar-tab"
+            }
+            SwitchToMode "normal"
+        }
         bind "tab" { ToggleTab; }
     }
     resize {
@@ -211,7 +218,7 @@ keybinds clear-defaults=true {
         bind "esc" { SwitchToMode "normal"; }
     }
     shared_among "pane" "tmux" {
-        bind "x" { CloseFocus; SwitchToMode "normal"; }
+        bind "X" { CloseFocus; SwitchToMode "normal"; }
     }
     shared_among "scroll" "search" {
         bind "PageDown" { PageScrollDown; }
@@ -246,7 +253,14 @@ keybinds clear-defaults=true {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
     shared_among "session" "tmux" {
-        bind "d" { Detach; }
+        bind "D" {
+            Run "bash" "-c" "printf '  ⚠️  Detach de la sesión? Sigue viva; reconecta con: zellij attach. (y = sí): '; read -n1 -r a; case $a in [yY]) zellij action detach;; esac" {
+                floating true
+                close_on_exit true
+                name "confirmar-detach"
+            }
+            SwitchToMode "normal"
+        }
     }
     tmux {
         bind "left" { MoveFocus "left"; SwitchToMode "normal"; }

@@ -56,7 +56,7 @@
 | `d` | Nuevo panel abajo |
 | `r` | Nuevo panel a la derecha |
 | `s` | Nuevo panel apilado (stacked) |
-| `x` | Cerrar panel enfocado |
+| `X` (mayúscula) | Cerrar panel enfocado — requiere Shift para evitar cierres accidentales |
 | `f` | Fullscreen del panel |
 | `z` | Toggle bordes de panel (frames) |
 | `w` | Toggle paneles flotantes |
@@ -73,7 +73,7 @@
 | Tecla | Acción |
 |---|---|
 | `n` | Nueva pestaña |
-| `x` | Cerrar pestaña |
+| `x` | Cerrar pestaña — pide confirmación en un panel flotante (`y` = sí) |
 | `r` | Renombrar pestaña |
 | `1`–`9` | Ir a la pestaña 1–9 |
 | `h/k` o `←↑` | Pestaña anterior |
@@ -131,7 +131,7 @@
 | Tecla | Acción |
 |---|---|
 | `w` | **Session manager** (cambiar/crear sesiones) |
-| `d` | **Detach** (desconectar de la sesión) |
+| `D` (mayúscula) | **Detach** (desconectar de la sesión) — pide confirmación en un panel flotante (`y` = sí). La sesión sigue viva; reconecta con `zellij attach` |
 | `a` | Acerca de Zellij |
 | `c` | Configuración |
 | `l` | Gestor de layouts |
@@ -152,12 +152,12 @@ Compatibilidad con reflejos de tmux:
 | `c` | Nueva pestaña |
 | `n` / `p` | Pestaña siguiente / anterior |
 | `,` | Renombrar pestaña |
-| `x` | Cerrar panel |
+| `X` (mayúscula) | Cerrar panel — requiere Shift |
 | `z` | Fullscreen |
 | `o` | Siguiente panel |
 | `space` | Siguiente layout |
 | `[` | Entrar a modo scroll |
-| `d` | Detach |
+| `D` (mayúscula) | Detach — pide confirmación (`y` = sí) |
 | `h/j/k/l` o flechas | Mover foco |
 | `Ctrl b` | Enviar `Ctrl b` literal a la terminal |
 

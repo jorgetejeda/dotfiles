@@ -69,7 +69,11 @@ Each tool directory mirrors the filesystem tree rooted at `$HOME`. For example:
 ### Zellij (zellij/)
 - KDL config at `zellij/.config/zellij/config.kdl`
 - Kanagawa theme; `Ctrl+g` toggles locked mode; `Alt+f` toggles floating panes; `Ctrl+o` enters session mode (`w` = session manager)
-- `Ctrl+q` does not quit immediately: it opens a floating confirmation pane running `bash` that prompts for `y`; only then does it run `zellij kill-session $ZELLIJ_SESSION_NAME` (zellij has no native quit-confirmation dialog, and there is no `zellij action quit`). This prevents accidental closes.
+- **Accidental-close guards** (zellij has no native confirmation dialog, so each uses a floating `bash` pane that prompts for `y` and, on confirm, runs a `zellij action`/`kill-session` — there is no `zellij action quit`):
+  - `Ctrl+q` (quit) → confirm → `zellij kill-session $ZELLIJ_SESSION_NAME`.
+  - Session/tmux mode detach rebound from `d` to `D` (Shift) + confirm → `zellij action detach` (session survives; reattach with `zellij attach`).
+  - Tab-mode close `x` → confirm → `zellij action close-tab`.
+  - Pane-mode close rebound from `x` to `X` (Shift), no prompt — a floating confirm pane would steal focus and `zellij action close-pane` would close the confirm pane itself, so a deliberate Shift key is used instead.
 - Installed via `instalar_brew "zellij"` from its own `installation.sh`
 - **zellij-attention plugin**: versioned `.wasm` at `zellij/.config/zellij/plugins/zellij-attention.wasm`, loaded via the `load_plugins` block in `config.kdl`. It adds ⏳/✅ icons to tab names. The plugin only has two states (`waiting`/⏳ and `completed`/✅), so "working" reuses ⏳. Claude Code hooks (registered idempotently into `~/.claude/settings.json` by the zellij `installation.sh` via `jq`): `UserPromptSubmit` + `Notification` → ⏳ (working/waiting), `Stop` → ✅ (done). Requires `jq`.
 
