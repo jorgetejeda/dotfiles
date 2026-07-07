@@ -128,13 +128,13 @@ return {
 			},
 		})
 
+		-- mason-lspconfig v2 auto-habilita todos los servidores instalados.
+		-- Excluimos ts_ls porque duplica a vtsls (ambos sirven TypeScript) y
+		-- tenerlos juntos vuelve inestable el go-to-definition (gd). Se usa solo
+		-- vtsls; angularls sigue activo para Angular.
 		mason_lspconfig.setup({
-			handlers = {
-				function(server_name)
-					vim.lsp.enable(server_name)
-				end,
-				-- stylua is a formatter (conform.nvim), not an LSP server
-				stylua = function() end,
+			automatic_enable = {
+				exclude = { "ts_ls" },
 			},
 		})
 	end,
