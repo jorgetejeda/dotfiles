@@ -165,7 +165,13 @@ keybinds clear-defaults=true {
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Ctrl q" { Quit; }
+        bind "Ctrl q" {
+            Run "bash" "-c" "printf '  ⚠️  Cerrar Zellij? Presiona (y) para confirmar, cualquier otra tecla cancela: '; read -n1 -r a; case $a in [yY]) zellij kill-session $ZELLIJ_SESSION_NAME;; esac" {
+                floating true
+                close_on_exit true
+                name "confirmar-salida"
+            }
+        }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }

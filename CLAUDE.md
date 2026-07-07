@@ -69,6 +69,7 @@ Each tool directory mirrors the filesystem tree rooted at `$HOME`. For example:
 ### Zellij (zellij/)
 - KDL config at `zellij/.config/zellij/config.kdl`
 - Kanagawa theme; `Ctrl+g` toggles locked mode; `Alt+f` toggles floating panes; `Ctrl+o` enters session mode (`w` = session manager)
+- `Ctrl+q` does not quit immediately: it opens a floating confirmation pane running `bash` that prompts for `y`; only then does it run `zellij kill-session $ZELLIJ_SESSION_NAME` (zellij has no native quit-confirmation dialog, and there is no `zellij action quit`). This prevents accidental closes.
 - Installed via `instalar_brew "zellij"` from its own `installation.sh`
 - **zellij-attention plugin**: versioned `.wasm` at `zellij/.config/zellij/plugins/zellij-attention.wasm`, loaded via the `load_plugins` block in `config.kdl`. It adds ⏳/✅ icons to tab names. The plugin only has two states (`waiting`/⏳ and `completed`/✅), so "working" reuses ⏳. Claude Code hooks (registered idempotently into `~/.claude/settings.json` by the zellij `installation.sh` via `jq`): `UserPromptSubmit` + `Notification` → ⏳ (working/waiting), `Stop` → ✅ (done). Requires `jq`.
 

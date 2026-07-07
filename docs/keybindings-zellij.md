@@ -43,7 +43,7 @@
 | `Alt i` / `Alt o` | Mover pestaña a la izquierda / derecha |
 | `Alt p` | Alternar panel en el grupo |
 | `Alt Shift p` | Toggle marcado de grupo |
-| `Ctrl q` | **Salir de Zellij** |
+| `Ctrl q` | **Salir de Zellij** — abre un panel flotante de confirmación (`y` para cerrar, cualquier otra tecla cancela) |
 
 ---
 
