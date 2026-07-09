@@ -18,7 +18,7 @@ return {
       map("n", "<leader>gB", function() gs.blame_line({ full = true }) end, "Blame current line (full commit)")
       map("n", "<leader>gbl", gs.blame, "Blame panel (navigate commits)")
 
-      -- Hunks
+      -- Hunks (movidos de <leader>h a <leader>g para liberar teclas de harpoon)
       map("n", "<leader>gn", gs.next_hunk, "Next git hunk")
       map("n", "<leader>gN", gs.prev_hunk, "Prev git hunk")
       map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
