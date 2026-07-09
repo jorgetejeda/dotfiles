@@ -207,7 +207,7 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 | `<leader>gb` | Blame de la línea (float) |
 | `<leader>gB` | Blame de la línea (commit completo) |
 | `<leader>gbl` | Panel de blame (navegar commits) |
-| `<leader>hn` / `<leader>hp` | Hunk siguiente / anterior |
+| `<leader>gn` / `<leader>gN` | Hunk siguiente / anterior |
 | `<leader>gp` | Preview del hunk |
 | `<leader>gr` | Reset del hunk |
 
@@ -246,6 +246,7 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 
 > ℹ️ **Nota:** Harpoon usa `<leader>a` (menú) y `<leader>h` (agregar). Ya no hay colisión con Claude Code (ese plugin fue removido). `<leader>p` es de image-preview.
 
+
 ---
 
 ## 🐦 Copilot
@@ -282,7 +283,7 @@ Dentro del picker: `<C-k>` subir · `<C-j>` bajar · `<C-q>` enviar a quickfix �
 | `cs<viejo><nuevo>` | `cs'"` | cambia `'` por `"` |
 | `ds<char>` | `ds]` | borra `[ ]` |
 
-**Comment.nvim** (comment.lua): `gcc` comentar línea · `gc` (visual) comentar selección · `gbc` comentar en bloque.
+**Comment.nvim** (comment.lua): `gcc` comentar línea · `gc` (visual) comentar selección · `gbc` comentar en bloque · `<leader>gc` comentar línea/selección (alias).
 
 **nvim-rip-substitute** (rip.lua) — buscar y reemplazar con preview en vivo (ripgrep):
 

@@ -81,7 +81,7 @@ Para ver todos los mappings de las keys :Telescope maps
 | Atajo | Modo | Acción |
 |-------|------|--------|
 | `<leader>h` | Normal | Agregar archivo actual a Harpoon |
-| `<leader>a` | Normal | Abrir menú de Harpoon |
+| `<leader>a` | Normal | Abrir menú de Harpoon (exclusivo, sin conflictos) |
 | `<leader>1` | Normal | Ir al archivo 1 de Harpoon |
 | `<leader>2` | Normal | Ir al archivo 2 de Harpoon |
 | `<leader>3` | Normal | Ir al archivo 3 de Harpoon |
@@ -125,6 +125,13 @@ Usar la sustitución nativa de Vim: `:%s/nombre_viejo/nombre_nuevo/gc`
 | Atajo | Modo | Acción |
 |-------|------|--------|
 | `<leader>gg` | Normal | Abrir LazyGit |
+| `<leader>gb` | Normal | Blame de la línea (float) |
+| `<leader>gB` | Normal | Blame de la línea (commit completo) |
+| `<leader>gbl` | Normal | Panel de blame (navegar commits) |
+| `<leader>gn` | Normal | Hunk siguiente |
+| `<leader>gN` | Normal | Hunk anterior |
+| `<leader>gp` | Normal | Preview del hunk |
+| `<leader>gr` | Normal | Reset del hunk |
 
 ---
 
